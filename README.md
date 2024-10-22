@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# Apron take home CRUD webapp
+##### Naho N'Guessan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I made this web app to apply to Apron as a Senior Frontend Engineer
 
-Currently, two official plugins are available:
+## Stack
+- [Vite](https://vite.dev/guide/)
+- React
+- TypeScript
+- .Sass for styling
+- [React Hook Form ](https://www.react-hook-form.com/) and [Yup](https://github.com/jquense/yup/tree/pre-v1) for form validation
+- [ReactQuery](https://tanstack.com/query/latest/docs/framework/react/overview) for data fetching and caching
+- [Playwright](https://playwright.dev/) for e2e testing
+- Deployed with [Vercel](https://vercel.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This app requires [Node.js](https://nodejs.org/) v18 or higher to run.
 
-- Configure the top-level `parserOptions` property like this:
+Install the dependencies and devDependencies and start the server.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+yarn
+yarn dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Enjoy!
