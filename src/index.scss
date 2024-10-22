@@ -1,0 +1,18 @@
+//Google Font
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap');
+
+// Color tokens
+$bgColor:#faf9f2;
+$borderColor:#ECEBE3;
+$borderColorHover:#d7d6cf;
+$colorNegative:#E57171;
+
+// Main styles
+body {
+    margin:0;
+    background: $bgColor;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+}
