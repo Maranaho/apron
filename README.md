@@ -1,7 +1,7 @@
 # Apron take home CRUD webapp
 ##### Naho N'Guessan
 
-I made this web app to apply to Apron as a Senior Frontend Engineer
+I made this web app for my application to Apron as a Senior Frontend Engineer.
 
 ## Stack
 - [Vite](https://vite.dev/guide/)
@@ -24,5 +24,3 @@ Install the dependencies and devDependencies and start the server.
 yarn
 yarn dev
 ```
-
-Enjoy!
