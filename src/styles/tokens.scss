@@ -1,6 +1,6 @@
 //Colors
 $bgColor: #faf9f2;
-$borderColor: #ECEBE3;
+$borderColor: #e3e2d9;
 $borderColorHover: #bcbbb3;
 $colorNegative: #E57171;
 
@@ -37,3 +37,12 @@ $closeBtnPosition: 20px;
 
 //Table
 $rowBorderWidth: 1px;
+
+//Form
+$focusColor: #d7f4b7;
+$labelTextColor: #706D5C;
+$inputPadding:14px;
+$inputBorder: 2px solid $borderColor;
+$inputRadius: 12px;
+$inputOutline: 1px solid $focusColor;
+$inputBorderFocus: 2px solid $focusColor;

@@ -7,7 +7,7 @@ const useEditUser = () => {
 
     return useMutation({
         mutationFn: async ({ id, updatedData }: { id: UID; updatedData: Partial<Omit<User, "id" | "createdAt" | "isDeleted">> }) => {
-            const updatedUser = editUser(id, updatedData)
+            const updatedUser = editUser(id, updatedData)            
             return updatedUser ? fetchUsers() : Promise.reject('User not found')
         },
         onSuccess: (updatedUsers) => {

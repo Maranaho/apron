@@ -1,0 +1,21 @@
+@use '../../styles/tokens.scss' as *;
+
+.Input{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    label {
+        color: $labelTextColor;
+        padding: 8px 0;
+    }
+    input {
+        padding: $inputPadding;
+        border: $inputBorder;
+        border-radius: $inputRadius;
+        &:focus{
+            outline: $inputOutline;
+            border: $inputBorderFocus;
+        }
+    }
+}

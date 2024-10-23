@@ -21,7 +21,7 @@ const AddUserForm: FC = () => {
             age: data.age,
             gender: data.gender,
         }
-
+        
         // Edit existing or add new user depending on userData
         if (userData) editUser({ id: userData.id, updatedData: userPayload })
         else addUser(userPayload)
@@ -45,10 +45,13 @@ const AddUserForm: FC = () => {
     }, [userid])
 
     return (
-        <UserForm
-            onSubmit={handleFormSubmit}
-            existingUser={userData}
-        />
+        <>
+            <h1>{`${userid ? "Edit": "Add"} user`}</h1>
+            <UserForm
+                onSubmit={handleFormSubmit}
+                existingUser={userData}
+            />
+        </>
     )
 }
 

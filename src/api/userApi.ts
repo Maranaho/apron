@@ -32,15 +32,15 @@ const addUser = (
 }
 
 // ------------- Edit a user -------------
-const editUser = (
-    id: UID,
-    updatedData: Partial<Omit<User, "id" | "createdAt" | "isDeleted">>
-): User | null => {
-    const user = users.find(user => user.id === id)
-    if (!user) return null
-    Object.assign(user, updatedData)
+const editUser = (id: UID, updatedData: Partial<Omit<User, "id" | "createdAt" | "isDeleted">>): User | null => {
+
+    const userIndex = users.findIndex(user => user.id === id)
+    if (userIndex === -1) return null
+    const updatedUser = { ...users[userIndex], ...updatedData }
+    users[userIndex] = updatedUser
     persist(users)
-    return user
+    
+    return updatedUser
 }
 
 // ------------- Soft Delete a user -------------

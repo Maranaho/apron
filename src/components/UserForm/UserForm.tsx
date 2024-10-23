@@ -1,14 +1,26 @@
 import { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Gender, User, UserFormValues } from '../../types/userTypes'
+import { User, UserFormValues } from '../../types/userTypes'
 import validationSchema from '../../utils/validationSchema'
+import Input from '../Input/Input'
+import GenderSelect from '../GenderSelect/GenderSelect'
+import FormActions from '../FormActions/FormActions'
+import styles from "./Form.module.scss"
 
 // Define the props for the UserForm component
 interface UserFormProps {
     existingUser?: User 
     onSubmit: (data: User) => void
 }
+
+// Define input configurations
+const inputFields = [
+    { id: 'firstName', label: 'First Name' },
+    { id: 'lastName', label: 'Last Name' },
+    { id: 'age', label: 'Age' },
+]
+
 
 // UserForm component
 const UserForm: FC<UserFormProps> = ({ existingUser, onSubmit }) => {
@@ -29,7 +41,10 @@ const UserForm: FC<UserFormProps> = ({ existingUser, onSubmit }) => {
 
 
     // Custom submit handler to convert form values to User type
-    const handleFormSubmit = (data: UserFormValues) => {
+    const handleFormSubmit = (data: UserFormValues) => { 
+        // console.log({data,existingUser});
+        //[...initialUsers]
+        
         const user: User = {
             id: existingUser ? existingUser.id : '',
             firstName: data.firstName,
@@ -42,35 +57,26 @@ const UserForm: FC<UserFormProps> = ({ existingUser, onSubmit }) => {
         onSubmit(user)
     }
 
-    if(!existingUser)return <p>Loading user...</p>
-
     return (
-        <form onSubmit={handleSubmit(handleFormSubmit)}>
-            <div>
-                <label htmlFor="gender">Gender</label>
-                <select id="gender" {...register('gender')}>
-                    <option value="">Select Gender</option>
-                    <option value={Gender.Male}>Male</option>
-                    <option value={Gender.Female}>Female</option>
-                </select>
-                {errors.gender && <span>{errors.gender.message}</span>}
-            </div>
-            <div>
-                <label>First Name</label>
-                <input type="text" {...register('firstName')} />
-                {errors.firstName && <span>{errors.firstName.message}</span>}
-            </div>
-            <div>
-                <label>Last Name</label>
-                <input type="text" {...register('lastName')} />
-                {errors.lastName && <span>{errors.lastName.message}</span>}
-            </div>
-            <div>
-                <label>Age</label>
-                <input type="number" {...register('age')} />
-                {errors.age && <span>{errors.age.message}</span>}
-            </div>
-            <button type="submit">Submit</button>
+        <form
+            id="userForm"
+            className={styles.Form}
+            onSubmit={handleSubmit(handleFormSubmit)}
+        >
+            <GenderSelect
+                register={register}
+                error={errors.gender?.message}
+            />
+            {inputFields.map(({ id, label }) => (
+                <Input
+                    key={id}
+                    id={id as keyof Omit<UserFormValues, 'gender'>}
+                    label={label}
+                    register={register}
+                    error={errors[id as keyof UserFormValues]?.message}
+                />
+            ))}
+            <FormActions edit={!!existingUser} />
         </form>
     )
 }
