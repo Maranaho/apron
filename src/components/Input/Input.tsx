@@ -25,6 +25,7 @@ const Input: FC<InputProps> = ({
             <label htmlFor={id}>{label}</label>
             <input
                 id={id}
+                className={error?styles.error:""}
                 type={id === "age"?"number":"text"}
                 {...register(id)}
             />

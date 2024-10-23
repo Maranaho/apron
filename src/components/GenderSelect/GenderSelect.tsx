@@ -16,7 +16,10 @@ const GenderSelect: FC<GenderSelectProps> = ({
     return (
         <fieldset className={styles.GenderSelect}>
             <label htmlFor="gender">Gender</label>
-            <select id="gender" {...register('gender')}>
+            <select
+                id="gender" {...register('gender')}
+                className={error?styles.error:""}
+            >
                 <option value="">Select Gender</option>
                 <option value={Gender.Male}>Male</option>
                 <option value={Gender.Female}>Female</option>
