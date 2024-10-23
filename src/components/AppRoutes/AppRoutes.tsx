@@ -5,19 +5,17 @@ import App from "../../App"
 const paths = [
     "/",
     "/add-user",
+    "/?sortKey=firstName",
     "/edit-user/:userid",
     "/delete-user/:userid",
 ]
 
-const AppRoutes: FC = () => {
-
-    return (
-        <Router>
-            <Routes>
-                {paths.map(path => <Route key={path} path={path} element={<App />} />)}
-            </Routes>
-        </Router>
-    )
-}
+const AppRoutes: FC = () => (
+    <Router>
+        <Routes>
+            {paths.map(path => <Route key={path} path={path} element={<App />} />)}
+        </Routes>
+    </Router>
+)
 
 export default AppRoutes
