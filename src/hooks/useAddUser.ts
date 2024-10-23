@@ -8,7 +8,7 @@ const useAddUser = () => {
     return useMutation({
         mutationFn: async (newUser: Omit<User, "id" | "createdAt" | "isDeleted">) => {
             addUser(newUser.firstName, newUser.lastName, newUser.age, newUser.gender)
-            return fetchUsers() // Return updated user list
+            return fetchUsers()
         },
         onSuccess: (updatedUsers) => {
             queryClient.setQueryData(['users'], updatedUsers)
