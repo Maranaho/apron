@@ -6,6 +6,18 @@ $colorNegative: #E57171;
 
 //Buttons
 $btnBgPrimary: #000;
+$btnTxtColorPrimary: #fff;
+$btnPadding: 7px 15px;
+$btnRadius: 50px;
+$btnBorderWidth: 2px;
+$btnBorderPrimary: $btnBorderWidth solid $btnBgPrimary;
+$btnGap: 10px;
 
 //Dimensions
 $maxAppWidth: 1280px;
+$appPadding: 50px 0;
+
+//font
+$fontSizeReg:14px;
+$fontWeightReg: 300;
+$dmFontReg: "DM Sans", sans-serif;

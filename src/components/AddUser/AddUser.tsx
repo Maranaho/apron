@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Gender } from "../../types/userTypes"
-import { useAddUser } from '../../hooks'
+import { useAddUser } from "../../hooks"
+import plusIcon from "../../assets/svg/add.svg"
 
 const AddUser: FC = () => {
     // Use the custom hook for adding users
@@ -24,7 +25,10 @@ const AddUser: FC = () => {
         <button
             onClick={handleAddUser}
             className='btn primary'
-        >Add New User</button>
+        >
+            <img src={plusIcon} alt="add user"/>
+            <span>Add New User</span>
+        </button>
     )
 }
 
