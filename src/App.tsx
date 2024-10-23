@@ -11,16 +11,16 @@ import "./styles/main.scss"
 const App:FC = ()=> {
 
   const location = useLocation()
-  const { userid } = useParams<{ userid: string }>()
+  const { userid } = useParams<{ userid: string | undefined }>()
   const openAddNewUser = location.pathname === "/add-user"
   const openEditUser = location.pathname === `/edit-user/${userid}`
   const openDeleteUser = location.pathname === `/delete-user/${userid}`
-
+  
   return (
     <main className={styles.App}>
         <Header/>
         <Users />
-        {openAddNewUser || openEditUser && <Modal><AddUserForm/></Modal>}
+        {(openAddNewUser || openEditUser) && <Modal><AddUserForm/></Modal>}
         {openDeleteUser && <Modal><DeleteUserModal/></Modal>}
     </main>
   )

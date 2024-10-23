@@ -26,7 +26,7 @@ const addUser = (
         isDeleted: false,
         createdAt: Date.now(),
     }
-    users.push(newUser)
+    users.unshift(newUser)
     persist(users)
     return newUser
 }

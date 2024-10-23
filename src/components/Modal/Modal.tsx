@@ -1,7 +1,7 @@
 import {
     FC,
     ReactNode,
-    MouseEvent
+    MouseEvent,
 } from "react"
 import {
     Link,
@@ -11,8 +11,8 @@ import {
 import closeIcon from "../../assets/svg/close.svg"
 import styles from "./Modal.module.scss"
 
-interface ModalProps {
-    children: ReactNode
+interface ModalProps { children: ReactNode 
+
 }
 const Modal: FC<ModalProps> = ({ children }) => {
     
@@ -20,6 +20,7 @@ const Modal: FC<ModalProps> = ({ children }) => {
     const handleModalBlur = (e:MouseEvent<HTMLDivElement>)=>{
         if(e.target === e.currentTarget)navigate("/")
     }
+
     return (
         <div
             className={styles.ModalCtn}

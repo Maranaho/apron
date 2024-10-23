@@ -3,14 +3,14 @@ import UserForm from "../UserForm/UserForm"
 import useAddUser from "../../hooks/useAddUser"
 import useEditUser from "../../hooks/useEditUser"
 import { User, UserFormValues } from "../../types/userTypes"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 const AddUserForm: FC = () => {
     const { userid } = useParams<{ userid: string }>()
     const { mutate: addUser } = useAddUser()
     const { mutate: editUser } = useEditUser()
     const [userData, setUserData] = useState<User | undefined>(undefined)
-
+    const navigate = useNavigate()
     // Handle form submission
     const handleFormSubmit = (data: UserFormValues) => {
         const userPayload: Omit<User, 'id' | 'createdAt' | 'isDeleted'> = {
@@ -23,6 +23,8 @@ const AddUserForm: FC = () => {
         // Edit existing or add new user depending on userData
         if (userData) editUser({ id: userData.id, updatedData: userPayload })
         else addUser(userPayload)
+
+        navigate("/")
     }
 
     // Fetch user data if in edit mode
