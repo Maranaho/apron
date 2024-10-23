@@ -6,3 +6,8 @@
     align-items: center;
     padding: $appPadding;
 }
+
+.logo {
+    cursor: pointer;
+    &:hover{ opacity: .6 }
+}

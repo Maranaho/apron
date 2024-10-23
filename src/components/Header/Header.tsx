@@ -9,6 +9,7 @@ const Header:FC = () => {
             <img
                 src={logo}
                 alt="users"
+                className={styles.logo}
             />
             <AddUserBtn/>
         </header>

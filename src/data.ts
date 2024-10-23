@@ -23,18 +23,18 @@ const initialUsers: User[] = [
     {
         id: uid(),
         gender: Gender.Male,
-        firstName: 'Salim',
-        lastName: "Hamid",
-        age: 38,
+        firstName: 'Naho',
+        lastName: "N'Guessan",
+        age: 39,
         isDeleted: false,
         createdAt: new Date().getTime() + 2
     },
     {
         id: uid(),
         gender: Gender.Male,
-        firstName: 'Naho',
-        lastName: "N'Guessan",
-        age: 39,
+        firstName: 'Salim',
+        lastName: "Hamid",
+        age: 38,
         isDeleted: false,
         createdAt: new Date().getTime() + 3
     },

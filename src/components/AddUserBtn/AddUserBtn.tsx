@@ -7,7 +7,7 @@ const AddUserBtn: FC = () => {
     return (
         <Link to="/add-user" className='btn primary'>
             <img src={plusIcon} alt="add user"/>
-            <span>Add New User</span>
+            <span>Add User</span>
         </Link>
     )
 }
