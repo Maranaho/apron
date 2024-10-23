@@ -5,14 +5,10 @@ import { v4 as uid } from "uuid"
 // Pretend db
 let users: User[] = [...initialUsers]
 
-
-
-//  -------------        Fetch users, filter out soft deleted   -------
-
+// ------------- Fetch users, filter out soft-deleted -------------
 const fetchUsers = (): User[] => users.filter(user => !user.isDeleted)
 
-//  -------------        Add a user - Mandatory       -------
-
+// ------------- Add a user -------------
 const addUser = (
     firstName: string,
     lastName: string,
@@ -32,7 +28,7 @@ const addUser = (
     return newUser
 }
 
-// -------------        Edit a user - Mandatory     --------
+// ------------- Edit a user -------------
 const editUser = (
     id: UID,
     updatedData: Partial<Omit<User, "id" | "createdAt" | "isDeleted">>
@@ -43,25 +39,22 @@ const editUser = (
     return user
 }
 
+// ------------- Soft Delete a user -------------
+const softDeleteUser = (id: UID): Promise<User[]> => {
+    const user = users.find(user => user.id === id)
+    if (user) user.isDeleted = true
+    return Promise.resolve(users.filter(user => !user.isDeleted))
+}
 
 /*
-------    Delete a user - Mandatory    -------
-
 Here I chose to not actually delete from the "db"
 instead I chose a "soft delete" approach
     - Compliant with data retention
     - Easier data recovery
-
 */
-const softDeleteUser = (id: UID): boolean => {
-    const user = users.find(user => user.id === id)
-    if (user) {
-        user.isDeleted = true
-        return true
-    }
-    return false
-}
 
+
+// Exposing the API
 export {
     fetchUsers,
     addUser,
