@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { fetchUsers } from '../api/userApi'
-import { useDeleteUser, useEditUser } from '../hooks'
-import { User,UID } from '../types/userTypes'
+import { fetchUsers } from '../../api/userApi'
+import { useDeleteUser, useEditUser } from '../../hooks'
+import { User,UID } from '../../types/userTypes'
 
 const UserList: FC = () => {
     
