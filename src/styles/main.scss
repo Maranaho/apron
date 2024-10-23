@@ -13,7 +13,7 @@ body {
     font-size: $fontSizeReg;
     > #app {
         display: flex;
-        padding: $appPadding;
+        padding-bottom: $mainPadding;
         box-sizing: border-box;
         
     }
@@ -36,7 +36,14 @@ button{
         border: $btnBorderPrimary;
         background: $btnBgPrimary;
         color: $btnTxtColorPrimary;
-
+    }
+    &.secondary {
+        border: $btnBorderSecondary;
+        background: $btnBgSecondary;
+        color: $btnTxtColorSecondary;
+        &:hover {
+            border: $btnBorderSecondaryHover;
+        }
     }
 }
 
@@ -45,3 +52,10 @@ h1 {
     font-weight: 600;
     margin: 0;
 }
+
+th{
+    text-align: left;
+    padding: 30px 0;
+    background: #fff;
+}
+td { border-top: $rowBorderWidth solid $borderColor }

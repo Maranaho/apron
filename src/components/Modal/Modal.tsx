@@ -1,4 +1,8 @@
-import { FC, ReactNode } from "react"
+import {
+    FC,
+    ReactNode,
+    MouseEvent
+} from "react"
 import {
     Link,
     useNavigate,
@@ -13,18 +17,23 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ children }) => {
     
     const navigate:NavigateFunction = useNavigate()
-
+    const handleModalBlur = (e:MouseEvent<HTMLDivElement>)=>{
+        if(e.target === e.currentTarget)navigate("/")
+    }
     return (
         <div
             className={styles.ModalCtn}
-            onClick={()=>navigate("/")}
+            onClick={handleModalBlur}
         >
             <section className={styles.Modal}>
                 <Link
-                    className={styles.closeBtn}
                     to="/"
+                    className={styles.closeBtn}
                 >
-                    <img src={closeIcon} alt="close modal"/>
+                    <img
+                        src={closeIcon}
+                        alt="close modal"
+                    />
                 </Link>
                 {children}
             </section>

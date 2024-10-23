@@ -1,21 +1,26 @@
 //Colors
 $bgColor: #faf9f2;
 $borderColor: #ECEBE3;
-$borderColorHover: #d7d6cf;
+$borderColorHover: #bcbbb3;
 $colorNegative: #E57171;
 
 //Buttons
-$btnBgPrimary: #000;
-$btnTxtColorPrimary: #fff;
 $btnPadding: 7px 15px;
 $btnRadius: 50px;
 $btnBorderWidth: 2px;
-$btnBorderPrimary: $btnBorderWidth solid $btnBgPrimary;
 $btnGap: 10px;
+$btnBgPrimary: #000;
+$btnBgSecondary: transparent;
+$btnTxtColorPrimary: #fff;
+$btnBorderPrimary: $btnBorderWidth solid $btnBgPrimary;
+$btnTxtColorSecondary: #000;
+$btnBorderSecondary: $btnBorderWidth solid $borderColor;
+$btnBorderSecondaryHover: $btnBorderWidth solid $borderColorHover;
 
 //Dimensions
 $maxAppWidth: 1280px;
-$appPadding: 50px 0;
+$mainPadding: 50px;
+$appPadding: $mainPadding 0;
 
 //font
 $fontSizeReg:14px;
@@ -29,3 +34,6 @@ $modalRadius: 16px;
 $modalPadding: 30px;
 $modalShadow: 0px 20px 80px 0px rgba(0,0,0,.7);
 $closeBtnPosition: 20px;
+
+//Table
+$rowBorderWidth: 1px;

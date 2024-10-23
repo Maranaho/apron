@@ -1,32 +1,51 @@
-import { FC } from 'react'
-// import { Gender } from "../../types/userTypes"
-// import { useAddUser } from "../../hooks"
-
+import { FC, useEffect, useState } from "react"
+import UserForm from "../UserForm/UserForm"
+import useAddUser from "../../hooks/useAddUser"
+import useEditUser from "../../hooks/useEditUser"
+import { User, UserFormValues } from "../../types/userTypes"
+import { useParams } from "react-router-dom"
 
 const AddUserForm: FC = () => {
+    const { userid } = useParams<{ userid: string }>()
+    const { mutate: addUser } = useAddUser()
+    const { mutate: editUser } = useEditUser()
+    const [userData, setUserData] = useState<User | undefined>(undefined)
 
-    // Use the custom hook for adding users
-    // const { mutate: addUser } = useAddUser()
+    // Handle form submission
+    const handleFormSubmit = (data: UserFormValues) => {
+        const userPayload: Omit<User, 'id' | 'createdAt' | 'isDeleted'> = {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            age: data.age,
+            gender: data.gender,
+        }
 
-    //Just testing CRUDS better UX later
-    // Temporary function to prompt user input for a new user
-    // const handleAddUser = () => {
-    //     const firstName = prompt("Enter first name:")
-    //     const lastName = prompt("Enter last name:")
-    //     const ageString = prompt("Enter age:")
+        // Edit existing or add new user depending on userData
+        if (userData) editUser({ id: userData.id, updatedData: userPayload })
+        else addUser(userPayload)
+    }
 
-    //     if (firstName && lastName && ageString) {
-    //         const age = parseInt(ageString, 10)
-    //         if (!isNaN(age)) addUser({ firstName, lastName, age, gender: Gender.Male })
-    //         else  alert("Please enter a valid age.")
-    //     }
-    // }
+    // Fetch user data if in edit mode
+    useEffect(() => {
+        if (userid) {
+            
+            // Retrieve users from localStorage
+            const storedUsers = localStorage.getItem('users')
+            const users: User[] = storedUsers ? JSON.parse(storedUsers) : []
+
+            // Find the user by id
+            const fetchedUser = users.find(user => user.id === userid)
+            if (fetchedUser) {
+                setUserData(fetchedUser)
+            }
+        }
+    }, [userid])
 
     return (
-        <div>
-            <h1>Add user</h1>
-            
-        </div>
+        <UserForm
+            onSubmit={handleFormSubmit}
+            existingUser={userData} // Pass existing user data if editing
+        />
     )
 }
 

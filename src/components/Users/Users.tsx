@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react'
-import UserList from '../UserList/UserList'
+import UserTable from '../UserTable/UserTable'
 import { WaitType } from "../../types/userTypes"
 
 const User: FC = () => {
@@ -24,7 +24,7 @@ const User: FC = () => {
 
     return (
         <>
-            {loading ? <p>Loading...</p> : <UserList />}
+            {loading ? <p>Loading...</p> : <UserTable />}
         </>
     )
 }
