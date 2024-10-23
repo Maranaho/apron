@@ -1,14 +1,35 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react"
+import {
+    Link,
+    useNavigate,
+    NavigateFunction
+} from "react-router-dom"
+import closeIcon from "../../assets/svg/close.svg"
 import styles from "./Modal.module.scss"
 
 interface ModalProps {
     children: ReactNode
 }
+const Modal: FC<ModalProps> = ({ children }) => {
+    
+    const navigate:NavigateFunction = useNavigate()
 
-const Modal: FC<ModalProps> = ({ children }) => (
-    <div className={styles.Modal}>
-        {children}
-    </div>
-)
+    return (
+        <div
+            className={styles.ModalCtn}
+            onClick={()=>navigate("/")}
+        >
+            <section className={styles.Modal}>
+                <Link
+                    className={styles.closeBtn}
+                    to="/"
+                >
+                    <img src={closeIcon} alt="close modal"/>
+                </Link>
+                {children}
+            </section>
+        </div>
+    )
+}
 
 export default Modal

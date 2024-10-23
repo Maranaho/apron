@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Gender } from "../../types/userTypes"
 import { useAddUser } from "../../hooks"
-import { Link } from 'react-router-dom'
+
 
 const AddUserForm: FC = () => {
 
@@ -24,8 +24,8 @@ const AddUserForm: FC = () => {
 
     return (
         <div>
-            Add a user
-            <Link className="btn" to="/">Close</Link>
+            <h1>Add user</h1>
+            
         </div>
     )
 }
