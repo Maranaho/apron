@@ -1,14 +1,32 @@
-import { FC } from 'react'
+import { FC,useEffect } from 'react'
+import { useLocation } from "react-router-dom"
 import Users from './components/Users/Users'
 import Header from './components/Header/Header'
+import AddUserForm from './components/AddUserForm/AddUserForm'
+import Modal from './components/Modal/Modal'
 import styles from "./styles/App.module.scss"
 import "./styles/main.scss"
+const App:FC = ()=> {
 
-const App:FC = ()=> (
-      <main className={styles.App}>
+  const location = useLocation();
+    const isModalOpen = location.pathname === "/add-user"
+
+  useEffect(()=>{
+    console.log({isModalOpen});
+    
+  },[isModalOpen])
+
+  return (
+    <main className={styles.App}>
         <Header/>
         <Users />
-      </main>
+        {isModalOpen && (
+          <Modal>
+            <AddUserForm/>
+          </Modal>
+        )}
+    </main>
 )
+}
 
 export default App

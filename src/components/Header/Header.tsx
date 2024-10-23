@@ -1,5 +1,5 @@
 import { FC } from "react"
-import AddUser from "../AddUser/AddUser"
+import AddUserBtn from "../AddUserBtn/AddUserBtn"
 import logo from "../../assets/svg/logo.svg"
 import styles from "./Header.module.scss"
 
@@ -10,7 +10,7 @@ const Header:FC = () => {
                 src={logo}
                 alt="users"
             />
-            <AddUser/>
+            <AddUserBtn/>
         </header>
     )
 }

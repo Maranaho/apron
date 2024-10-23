@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import { Gender } from "../../types/userTypes"
 import { useAddUser } from "../../hooks"
-import plusIcon from "../../assets/svg/add.svg"
+import { Link } from 'react-router-dom'
 
-const AddUser: FC = () => {
+const AddUserForm: FC = () => {
+
     // Use the custom hook for adding users
     const { mutate: addUser } = useAddUser()
 
@@ -22,14 +23,11 @@ const AddUser: FC = () => {
     }
 
     return (
-        <button
-            onClick={handleAddUser}
-            className='btn primary'
-        >
-            <img src={plusIcon} alt="add user"/>
-            <span>Add New User</span>
-        </button>
+        <div>
+            Add a user
+            <Link className="btn" to="/">Close</Link>
+        </div>
     )
 }
 
-export default AddUser
+export default AddUserForm

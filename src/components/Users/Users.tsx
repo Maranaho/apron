@@ -8,7 +8,7 @@ const User: FC = () => {
     const loadTime = 1000
     let wait: WaitType
     const [loading, setLoading] = useState<boolean>(true)
-
+    
     useEffect(() => {
         const hasLoaded = localStorage.getItem('loadingInStorage')
         if (hasLoaded) setLoading(false)

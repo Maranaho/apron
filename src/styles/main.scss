@@ -18,12 +18,13 @@ body {
         
     }
 }
-
+.btn,
 button{
     cursor: pointer;
     &:hover{ opacity: .6}
 }
 .btn {
+    text-decoration: none;
     font-family: $dmFontReg;
     padding: $btnPadding;
     border-radius: $btnRadius;
