@@ -1,9 +1,11 @@
 import { Gender, User, UID } from "../types/userTypes"
 import initialUsers from "../data"
 import { v4 as uid } from "uuid"
+import persist from "../utils/persist"
 
 // Pretend db
-let users: User[] = [...initialUsers]
+const storedUsers = localStorage.getItem('users')
+const users: User[] = storedUsers ? JSON.parse(storedUsers) : [...initialUsers]
 
 // ------------- Fetch users, filter out soft-deleted -------------
 const fetchUsers = (): User[] => users.filter(user => !user.isDeleted)
@@ -25,6 +27,7 @@ const addUser = (
         createdAt: Date.now(),
     }
     users.push(newUser)
+    persist(users)
     return newUser
 }
 
@@ -36,6 +39,7 @@ const editUser = (
     const user = users.find(user => user.id === id)
     if (!user) return null
     Object.assign(user, updatedData)
+    persist(users)
     return user
 }
 
@@ -43,6 +47,7 @@ const editUser = (
 const softDeleteUser = (id: UID): Promise<User[]> => {
     const user = users.find(user => user.id === id)
     if (user) user.isDeleted = true
+    persist(users)
     return Promise.resolve(users.filter(user => !user.isDeleted))
 }
 
