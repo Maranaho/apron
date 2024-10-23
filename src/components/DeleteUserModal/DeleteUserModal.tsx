@@ -3,6 +3,7 @@ import useDeleteUser from "../../hooks/useDeleteUser"
 import { User } from "../../types/userTypes"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import initialUsers from "../../data" 
+import styles from "./DeleteUserModal.module.scss"
 
 const DeleteUserModal: FC = () => {
     const navigate = useNavigate()
@@ -30,10 +31,12 @@ const DeleteUserModal: FC = () => {
     }
 
     return (
-        <div>
-            <h1>Are you sure you want to delete {user ? user.firstName : "this user"}?</h1>
-            {userid && <button onClick={handleDelete}>Yes</button>}
-            <Link className="btn secondary" to="/">Cancel</Link>
+        <div className={styles.DeleteUserModal}>
+            <h1>Are you sure you want to delete {user ? `user ${user.firstName}` : "this user"}?</h1>
+            <nav>
+                {userid && <button onClick={handleDelete}>Delete</button>}
+                <Link className="btn secondary" to="/">Cancel</Link>
+            </nav>
         </div>
     )
 }

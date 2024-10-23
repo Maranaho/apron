@@ -7,10 +7,10 @@ interface FormActionsProps { edit?: boolean}
 const FormActions:FC<FormActionsProps> = ({ edit }) => {    
 
     return (
-        <div className={styles.FormActions}>
+        <nav className={styles.FormActions}>
             <Link className="btn secondary" to="/">Cancel</Link>
             <button className="btn primary" type="submit" form="userForm">{edit?"Save":"Add"}</button>
-        </div>
+        </nav>
     )
 }
  
