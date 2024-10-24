@@ -8,15 +8,16 @@ Here's a quick overview:
 
 ## Process
 1. I started by organising an api to simulate a backend for managing users with functions that allow 2.	I structured an API to emulate a backend, providing functions for managing users, including fetching, adding, editing, and soft-deleting users.
-3.	Integrated these CRUD operations using custom hooks with React Query’s useMutation to handle user modifications and asynchronously update the user list.
-4.	Simulated a database by persisting the user data in localStorage.
-5.	Set up automated testing using Playwright to ensure functionality.
-6.	Enhanced the UI by adding components, buttons, and a table to display the user list.
-7.	Developed forms for adding and editing users.
-8.	Implemented form validation using React Hook Form and Yup.
-9.	Styled the form and UI components with CSS Modules, utilizing tokens for consistent design.
-10.	Added sorting functionality to the user list.
-11.	Wrote several end-to-end tests using Playwright to validate the app’s behavior.
+3. Integrated these CRUD operations using custom hooks with React Query’s useMutation to handle user modifications and asynchronously update the user list.
+4. Simulated a database by persisting the user data in localStorage.
+5. Set up automated testing using Playwright to ensure functionality.
+6. Enhanced the UI by adding components, buttons, and a table to display the user list.
+7. Developed forms for adding and editing users.
+8. Implemented form validation using React Hook Form and Yup.
+9. Styled the form and UI components with CSS Modules, utilizing tokens for consistent design.
+10. Added sorting functionality to the user list.
+11. Wrote several end-to-end tests using Playwright to validate the app’s behavior.
+12. Deployed to Vercel
 
 ## Improvements
 This project was completed in a single (extended) day to showcase my skills.
