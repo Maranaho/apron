@@ -18,9 +18,10 @@ Here's a quick overview:
 11.	Wrote several end-to-end tests using Playwright to validate the app’s behavior.
 
 ## Improvements
-This project was completed in a single (extended) day to showcase my skills. While the core functionality is solid, with more time, I would have refined the user experience.
+This project was completed in a single (extended) day to showcase my skills.
+While the core functionality is solid, with more time, I would have refined the user experience.
 
-Currently, transitions are abrupt, and I would have added smoother interactions, such as fading in the modal with a background dim and a slight upward motion. When a user is added, it would be visually appealing for the entry to grow into view rather than appearing instantly. Similarly, deletions could benefit from a more fluid transition.
+Currently, state changes are abrupt, I would have added smoother interactions, such as fading in the modal with a background dim and a slight upward motion. When a user is added, it would be visually appealing for the entry to grow into view rather than appearing instantly. Similarly, deletions could benefit from a more fluid transition.
 
 Additionally, when editing, briefly highlighting the updated cell would provide clearer feedback for users.
 
