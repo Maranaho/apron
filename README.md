@@ -6,6 +6,7 @@ I made this [webapp](https://apron-naho.vercel.app/) to apply at Apron for a Fro
 You can use the branches to navigate my progress and get a sense of how I approached this test.
 Here's a quick overview:
 
+## Process
 1. I started by organising an api to simulate a backend for managing users with functions that allow fetching, adding, editing, and soft-deleting users.
 2. I implemented these CRUD operations with custom hooks that use React Query’s useMutation to add, edit, delete a user and update the user list asynchronously.
 3. I persisted the data in localStorage, again to simulate a db.
