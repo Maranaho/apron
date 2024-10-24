@@ -2,7 +2,8 @@
 
 Thanks for reviewing my work.
 I made this [webapp](https://apron-naho.vercel.app/) to apply at Apron for a Frontend role.
-You can use the branches to navigate my progress and get a sense of how I approached this test.
+
+Use the branches to navigate my progress and get a sense of how I approached this test.
 Here's a quick overview:
 
 ## Process
