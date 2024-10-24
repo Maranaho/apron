@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('User Form Validation', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the application's homepage before each test
-    await page.goto('http://localhost:5173/');
+    await page.goto("https://apron-naho.vercel.app/");
   });
 
   test("should not submit the form if the first name is too short", async ({ page }) => {

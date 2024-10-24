@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Edit a user', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the application's homepage before each test
-    await page.goto('http://localhost:5173/');
+    await page.goto("https://apron-naho.vercel.app/");
   });
 
   test('should edit user first name and verify update', async ({ page }) => {
