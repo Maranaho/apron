@@ -4,6 +4,7 @@ import styles from "./Notification.module.scss"
 
 interface NotificationProps { message:string }
 
+// Delays to animate the notification
 const delay = 2000
 const transitionDelay = 700
 let timeToHide: ReturnType<typeof setTimeout>

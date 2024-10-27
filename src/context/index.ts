@@ -1,12 +1,19 @@
 import { createContext, Dispatch } from "react"
 
-interface State { currentUser: string | null }
+interface State {
+  currentUser: string | null;
+  currentSortKey: string;
+}
 
 type Action = 
   | { type: "SHOW_NOTIFICATION"; payload: string | null }
+  | { type: "SET_SORTKEY"; payload: string }
 
 
-const initialState: State = { currentUser: null }
+const initialState: State = {
+  currentUser: null,
+  currentSortKey:"firstName"
+}
 
 
 const reducer = (state: State, action: Action): State => {
@@ -15,10 +22,17 @@ const reducer = (state: State, action: Action): State => {
     case "SHOW_NOTIFICATION":
       return { 
         ...state, 
-        currentUser: action.payload }
+        currentUser: action.payload
       }
+      
 
+    case "SET_SORTKEY":
+      return { 
+        ...state, 
+        currentSortKey: action.payload
+      }
   }
+}
 
 
 const UsersContext = createContext<{
