@@ -1,3 +1,4 @@
+> Updates: `User action confirmations implemented!` 
 # Naho's take home test - CRUD webapp
 
 Thanks for reviewing my work.I made this [webapp](https://apron-naho.vercel.app/) in one day to apply at Apron for a Frontend role.
