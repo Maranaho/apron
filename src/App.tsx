@@ -13,7 +13,7 @@ import "./styles/main.scss"
 
 const App:FC = ()=> {
   const [state,dispatch] = useReducer(reducer,initialState)
-  const { currentUser } = state
+  const { currentUser,userDeleted } = state
    
   const location = useLocation()
   const { userid } = useParams<{ userid: string | undefined }>()
@@ -23,6 +23,7 @@ const App:FC = ()=> {
 
   // Notification message based on username and edit/add status
   const successMessage = ():string => {
+    if (userDeleted) return "User deleted"
     if (currentUser) return currentUser.edit
     ? `${currentUser.name} has been updated` 
     : `Welcome ${currentUser.name}!`

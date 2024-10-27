@@ -12,13 +12,14 @@ let timeToHide: WaitType
 let timeToClear: WaitType
 
 const Notification:FC<NotificationProps> = ({ message }) => {
-    const { state:{ currentUser },dispatch } = useContext(UsersContext)
+    
+    const { state:{ currentUser,userDeleted },dispatch } = useContext(UsersContext)
     const [show,setShow] = useState(false)
 
     useEffect(()=>{
         
         //Show notification with the name
-        if(currentUser){
+        if(currentUser || userDeleted){
             setShow(true)
             
             //Hide it still with the name
@@ -28,12 +29,19 @@ const Notification:FC<NotificationProps> = ({ message }) => {
 
             //Once hidden navigate away which will clear the name
             timeToClear = setTimeout(()=>{
-                dispatch && dispatch({type:"SHOW_NOTIFICATION",payload: null})
+                if(dispatch){
+                    if(userDeleted) dispatch({type:"SET_USER_DELETED",payload: false})
+                    else dispatch({type:"SHOW_NOTIFICATION",payload: null})
+                }
+                // if(dispatch){
+                //     if(userDeleted) dispatch({type:"SET_USER_DELETED",payload: false})
+                //     else dispatch({type:"SHOW_NOTIFICATION",payload: null})
+                // }
             },delay + transitionDelay)
 
         } else setShow(false)
  
-    },[currentUser])
+    },[currentUser,userDeleted])
 
     //Clear timeout in case user navigates away while the notification is visible
     useEffect(()=>{

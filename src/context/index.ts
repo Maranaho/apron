@@ -8,16 +8,19 @@ type CurrentUser = {
 interface State {
   currentUser: CurrentUser | null;
   currentSortKey: string;
+  userDeleted: boolean;
 }
 
 type Action = 
   | { type: "SHOW_NOTIFICATION"; payload: CurrentUser | null}
   | { type: "SET_SORTKEY"; payload: string }
+  | { type: "SET_USER_DELETED"; payload: boolean }
 
 
 const initialState: State = {
   currentUser: null,
-  currentSortKey:"firstName"
+  currentSortKey:"firstName",
+  userDeleted:false,
 }
 
 
@@ -35,6 +38,12 @@ const reducer = (state: State, action: Action): State => {
       return { 
         ...state, 
         currentSortKey: action.payload
+      }
+
+    case "SET_USER_DELETED":
+      return { 
+        ...state, 
+        userDeleted: action.payload
       }
   }
 }
