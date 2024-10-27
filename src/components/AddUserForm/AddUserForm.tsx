@@ -30,7 +30,10 @@ const AddUserForm: FC = () => {
         else addUser(userPayload)
         
         navigate("/")
-        dispatch && dispatch({type:"SHOW_NOTIFICATION",payload: data.firstName})
+        dispatch && dispatch({type:"SHOW_NOTIFICATION",payload: {
+            edit:!!userData,
+            name:data.firstName,
+        }})
     }
 
     // Fetch user data if in edit mode

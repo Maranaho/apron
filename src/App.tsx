@@ -20,7 +20,14 @@ const App:FC = ()=> {
   const openAddNewUser = location.pathname === "/add-user"
   const openEditUser = location.pathname === `/edit-user/${userid}`
   const openDeleteUser = location.pathname === `/delete-user/${userid}`
-  const newUserMessage = currentUser ? `Welcome ${currentUser}!`: "Success!"
+
+  // Notification message based on username and edit/add status
+  const successMessage = ():string => {
+    if (currentUser) return currentUser.edit
+    ? `${currentUser.name} has been updated` 
+    : `Welcome ${currentUser.name}!`
+    else return "Success!" 
+  }
 
   return (
     <UsersContext.Provider value={{state,dispatch}}>
@@ -29,7 +36,7 @@ const App:FC = ()=> {
           <Users />
           {(openAddNewUser || openEditUser) && <Modal><AddUserForm/></Modal>}
           {openDeleteUser && <Modal><DeleteUserModal/></Modal>}
-          <Notification message={newUserMessage} />
+          <Notification message={successMessage()} />
           <Chat/>
       </main>
     </UsersContext.Provider>

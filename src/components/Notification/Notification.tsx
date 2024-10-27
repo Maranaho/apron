@@ -1,5 +1,6 @@
 import { FC, useEffect,useState,useContext } from "react"
 import { UsersContext } from "../../context"
+import { WaitType } from "../../types/userTypes"
 import styles from "./Notification.module.scss"
 
 interface NotificationProps { message:string }
@@ -7,8 +8,8 @@ interface NotificationProps { message:string }
 // Delays to animate the notification
 const delay = 2000
 const transitionDelay = 700
-let timeToHide: ReturnType<typeof setTimeout>
-let timeToClear: ReturnType<typeof setTimeout>
+let timeToHide: WaitType
+let timeToClear: WaitType
 
 const Notification:FC<NotificationProps> = ({ message }) => {
     const { state:{ currentUser },dispatch } = useContext(UsersContext)

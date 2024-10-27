@@ -1,4 +1,4 @@
-import { FC, useEffect,useContext } from 'react'
+import { FC,useContext } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { fetchUsers } from '../../api/userApi'
 import { User } from '../../types/userTypes'

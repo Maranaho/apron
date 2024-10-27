@@ -1,12 +1,17 @@
 import { createContext, Dispatch } from "react"
 
+type CurrentUser = {
+  name: string,
+  edit: boolean
+}
+
 interface State {
-  currentUser: string | null;
+  currentUser: CurrentUser | null;
   currentSortKey: string;
 }
 
 type Action = 
-  | { type: "SHOW_NOTIFICATION"; payload: string | null }
+  | { type: "SHOW_NOTIFICATION"; payload: CurrentUser | null}
   | { type: "SET_SORTKEY"; payload: string }
 
 
