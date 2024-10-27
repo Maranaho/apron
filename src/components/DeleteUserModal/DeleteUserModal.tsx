@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react"
 import useDeleteUser from "../../hooks/useDeleteUser"
 import { User } from "../../types/userTypes"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import initialUsers from "../../data" 
+import initialUsers from "../../data/data" 
 import styles from "./DeleteUserModal.module.scss"
 
 const DeleteUserModal: FC = () => {
