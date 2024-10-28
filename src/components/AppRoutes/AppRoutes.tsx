@@ -5,7 +5,6 @@ import App from "../../App"
 const paths = [
     "/",
     "/add-user",
-    "/?sortKey=firstName",
     "/edit-user/:userid",
     "/success/:username/:userid",
     "/delete-user/:userid",
