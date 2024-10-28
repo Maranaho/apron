@@ -1,9 +1,7 @@
 import { FC, useEffect,useState,useContext } from "react"
 import { UsersContext } from "../../context"
 import { WaitType } from "../../types/userTypes"
-import styles from "./Notification.module.scss"
-
-interface NotificationProps { message:string }
+import styles from "./Notifications.module.scss"
 
 // Delays to animate the notification
 const delay = 2000
@@ -11,10 +9,19 @@ const transitionDelay = 700
 let timeToHide: WaitType
 let timeToClear: WaitType
 
-const Notification:FC<NotificationProps> = ({ message }) => {
+const Notifications:FC = () => {
     
     const { state:{ currentUser,userDeleted },dispatch } = useContext(UsersContext)
     const [show,setShow] = useState(false)
+
+    // Notification message based on username and edit/add status
+    const successMessage = ():string => {
+        if (userDeleted) return "User deleted"
+        if (currentUser) return currentUser.edit
+        ? `${currentUser.name} has been updated` 
+        : `Welcome ${currentUser.name}!`
+        else return "Success!" 
+    }
 
     useEffect(()=>{
         
@@ -53,9 +60,9 @@ const Notification:FC<NotificationProps> = ({ message }) => {
 
     return (
         <div className={styles.Notification}>
-            <span className={show ? styles.show : ""}>{message}</span>
+            <span className={show ? styles.show : ""}>{successMessage()}</span>
         </div>
     )
 }
  
-export default Notification
+export default Notifications
