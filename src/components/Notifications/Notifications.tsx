@@ -40,10 +40,6 @@ const Notifications:FC = () => {
                     if(userDeleted) dispatch({type:"SET_USER_DELETED",payload: false})
                     else dispatch({type:"SHOW_NOTIFICATION",payload: null})
                 }
-                // if(dispatch){
-                //     if(userDeleted) dispatch({type:"SET_USER_DELETED",payload: false})
-                //     else dispatch({type:"SHOW_NOTIFICATION",payload: null})
-                // }
             },delay + transitionDelay)
 
         } else setShow(false)
